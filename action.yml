@@ -1,0 +1,5 @@
+name: "Setup Central Dogma"
+description: "Setup Central Dogma"
+runs:
+  using: "node16"
+  main: "src/index.mjs"
