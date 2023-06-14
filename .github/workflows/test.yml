@@ -19,5 +19,8 @@ jobs:
 
       - uses: ./
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
       - run: which dogma
       - run: dogma -help

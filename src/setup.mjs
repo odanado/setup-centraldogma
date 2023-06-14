@@ -36,6 +36,7 @@ async function main() {
   fs.chmod(dogmaPath, 0o755);
 
   addPath(dogmaPath);
+  console.log(dogmaPath);
 }
 
 main();
