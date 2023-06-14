@@ -21,7 +21,7 @@ async function main() {
     },
   };
 
-  const os = "darwin";
+  const os = "linux";
   const arch = "amd64";
 
   const url = urls[os][arch];
@@ -35,8 +35,7 @@ async function main() {
   await fs.rename(downloadDogmaPath, path.join(dogmaDir, "dogma"));
   fs.chmod(dogmaPath, 0o755);
 
-  addPath(dogmaPath);
-  console.log(dogmaPath);
+  addPath(dogmaDir);
 }
 
 main();
