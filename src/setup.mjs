@@ -33,6 +33,7 @@ async function main() {
   const dogmaPath = path.join(dogmaDir, `dogma${ext}`);
 
   await fs.rename(downloadDogmaPath, path.join(dogmaDir, "dogma"));
+  fs.chmod(dogmaPath, 0o755);
 
   addPath(dogmaPath);
 }
