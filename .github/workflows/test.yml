@@ -20,4 +20,5 @@ jobs:
       - uses: ./
 
       - run: which dogma
-      - run: dogma -help
+      - run: dogma --help
+      - run: dogma --version
