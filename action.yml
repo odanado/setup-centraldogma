@@ -1,5 +1,12 @@
 name: "Setup Central Dogma"
 description: "Setup Central Dogma"
 runs:
-  using: "node16"
-  main: "dist/setup.js"
+  using: composite
+  steps:
+    - run: |
+        curl -L --output dogma https://github.com/line/centraldogma-go/releases/download/0.1.0/dogma.linux-amd64
+        chmod +x dogma
+        mkdir -p $HOME/bin
+        mv dogma $HOME/bin
+        echo "$HOME/bin" >> $GITHUB_PATH
+      shell: bash
