@@ -7,6 +7,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
         with:
@@ -16,9 +18,3 @@ jobs:
         id: tag-new-version
         with:
           version-command: cat ./VERSION
-
-      - name: Push new tag
-        run: |
-          git tag ${{ steps.tag-new-version.outputs.tag }}
-          git push origin ${{ steps.tag-new-version.outputs.tag }}
-        if: ${{ steps.tag-new-version.outputs.tag }}
