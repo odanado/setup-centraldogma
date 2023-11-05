@@ -1,0 +1,24 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - uses: salsify/action-detect-and-tag-new-version@v2
+        id: tag-new-version
+        with:
+          version-command: cat VERSION
+
+      - name: Push new tag
+        run: |
+          git tag ${{ steps.tag-new-version.outputs.tag }}
+          git push origin ${{ steps.tag-new-version.outputs.tag }}
+        if: ${{ steps.tag-new-version.outputs.tag }}
