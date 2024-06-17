@@ -1,5 +1,8 @@
 # setup-centraldogma
 
+This GitHub Action is deprecated. Please use https://github.com/odanado/setup-release instead.
+
+
 GitHub Action to setup [centraldogma-go](https://github.com/line/centraldogma-go).
 
 ## Usage
